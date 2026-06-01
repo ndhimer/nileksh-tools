@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>PDT · IST · UTC — Cron Builder</title>
+<title>PST · IST · UTC — Cron Builder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
@@ -53,7 +53,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
   padding:6px 18px;border-radius:99px;border:1px solid var(--border2);
   background:transparent;color:var(--muted);cursor:pointer;transition:all .22s;
 }
-.src-btn.active-pdt{background:var(--pdt);border-color:var(--pdt);color:#1a0a00;box-shadow:0 0 18px var(--pdt-glow);}
+.src-btn.active-pst{background:var(--pdt);border-color:var(--pdt);color:#1a0a00;box-shadow:0 0 18px var(--pdt-glow);}
 .src-btn.active-ist{background:var(--ist);border-color:var(--ist);color:#fff;box-shadow:0 0 18px var(--ist-glow);}
 
 /* Time picker */
@@ -74,7 +74,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .pf select:focus,.pf input[type=date]:focus{outline:none;border-color:var(--ist);box-shadow:0 0 0 3px rgba(124,106,255,.18);}
 .pf select option{background:var(--bg3);}
 .src-label-inline{font-family:var(--mono);font-size:9px;padding:2px 8px;border-radius:4px;display:inline-block;margin-bottom:4px;}
-.src-pdt-lbl{background:rgba(255,126,95,.12);color:var(--pdt);}
+.src-pst-lbl{background:rgba(255,126,95,.12);color:var(--pdt);}
 .src-ist-lbl{background:rgba(124,106,255,.12);color:var(--ist);}
 
 /* Date include toggle */
@@ -249,7 +249,7 @@ td.muted{color:var(--muted);}
   <div class="hdr a0">
     <div class="eyebrow">Time Zone · Cron Utility</div>
     <h1>
-      <span class="t-pdt">PDT</span>
+      <span class="t-pdt">PST</span>
       <span style="color:var(--muted);font-size:.6em;margin:0 6px;">↔</span>
       <span class="t-ist">IST</span>
       <span style="color:var(--muted);font-size:.6em;margin:0 6px;">↔</span>
@@ -262,7 +262,7 @@ td.muted{color:var(--muted);}
   <div class="source-bar a1">
     <div class="src-label">Enter time in →</div>
     <div class="src-btns">
-      <button class="src-btn" id="srcPDT" onclick="setSource('PDT')">PDT</button>
+      <button class="src-btn" id="srcPST" onclick="setSource('PST')">PST</button>
       <button class="src-btn active-ist" id="srcIST" onclick="setSource('IST')">IST</button>
     </div>
   </div>
@@ -299,8 +299,8 @@ td.muted{color:var(--muted);}
       <span id="dateIncLabel" style="font-family:var(--mono);font-size:10px;color:var(--muted);"></span>
     </div>
     <div class="tgl-pair">
-      <button class="tgl-btn tgl-on" id="tglYes" onclick="setDateInclude(true)">YES</button>
-      <button class="tgl-btn tgl-off" id="tglNo" onclick="setDateInclude(false)">NO</button>
+      <button class="tgl-btn tgl-off" id="tglYes" onclick="setDateInclude(true)">YES</button>
+      <button class="tgl-btn tgl-on" id="tglNo" onclick="setDateInclude(false)">NO</button>
     </div>
   </div>
 
@@ -316,12 +316,12 @@ td.muted{color:var(--muted);}
 
     <!-- 3-way cards -->
     <div class="triple-row a4">
-      <!-- PDT -->
+      <!-- PST -->
       <div class="tz-card pdt">
-        <span class="tz-badge pdt">PDT</span>
+        <span class="tz-badge pdt">PST</span>
         <div class="tz-time" id="pdtTime">—</div>
         <div class="tz-date-lbl" id="pdtDate">—</div>
-        <span class="tz-offset">GMT −7 · Pacific Daylight</span>
+        <span class="tz-offset">GMT −8 · Pacific Standard</span>
         <div class="tl-wrap">
           <div class="tl-track"><div class="tl-fill pdt" id="pdtFill"></div><div class="tl-thumb pdt" id="pdtThumb"></div></div>
           <div class="tl-lbls"><span>12a</span><span>6a</span><span>12p</span><span>6p</span><span>12a</span></div>
@@ -364,9 +364,9 @@ td.muted{color:var(--muted);}
     <!-- Diff summary row -->
     <div class="diff-row a4">
       <div class="diff-card pdt">
-        <div class="diff-label">PDT → IST gap</div>
-        <div class="diff-val">+12h 30m</div>
-        <div class="diff-sub">IST is ahead of PDT</div>
+        <div class="diff-label">PST → IST gap</div>
+        <div class="diff-val">+13h 30m</div>
+        <div class="diff-sub">IST is ahead of PST</div>
       </div>
       <div class="diff-card ist">
         <div class="diff-label">IST → UTC gap</div>
@@ -374,9 +374,9 @@ td.muted{color:var(--muted);}
         <div class="diff-sub">UTC is behind IST</div>
       </div>
       <div class="diff-card utc">
-        <div class="diff-label">PDT → UTC gap</div>
-        <div class="diff-val">+7h 00m</div>
-        <div class="diff-sub">UTC is ahead of PDT</div>
+        <div class="diff-label">PST → UTC gap</div>
+        <div class="diff-val">+8h 00m</div>
+        <div class="diff-sub">UTC is ahead of PST</div>
       </div>
     </div>
 
@@ -450,12 +450,12 @@ td.muted{color:var(--muted);}
 
   <!-- =================== TABLE TAB =================== -->
   <div class="tab-panel" id="tab-table">
-    <div style="margin-bottom:1rem;font-size:13px;color:var(--muted2);">Every 30-min IST slot → PDT / UTC equivalent and daily cron.</div>
+    <div style="margin-bottom:1rem;font-size:13px;color:var(--muted2);">Every 30-min IST slot → PST / UTC equivalent and daily cron.</div>
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th style="color:var(--pdt)">PDT</th>
+            <th style="color:var(--pdt)">PST</th>
             <th style="color:var(--ist)">IST</th>
             <th style="color:var(--utc)">UTC</th>
             <th>Day offset (from IST)</th>
@@ -475,14 +475,14 @@ const DAYS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const FDAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
-let source = 'IST'; // 'IST' or 'PDT'
-let includeDate = true;
+let source = 'IST'; // 'IST' or 'PST'
+let includeDate = false;
 
 // IST = UTC+5:30 → IST offset = +330 min
-// PDT = UTC-7   → PDT offset = -420 min
-// IST - PDT = 750 min (12h30m)
+// PST = UTC-7   → PST offset = -480 min
+// IST - PST = 810 min (13h30m)
 const IST_OFF = 330;   // IST ahead of UTC by 330 min
-const PDT_OFF = -420;  // PDT behind UTC by 420 min
+const PST_OFF = -480;  // PST behind UTC by 480 min
 
 function totalMinToUTC(totalMin, srcOffset){
   // UTC = srcTime - srcOffset
@@ -544,10 +544,10 @@ function getBaseDate(){
 function setSource(s){
   source=s;
   document.getElementById('srcIST').className='src-btn'+(s==='IST'?' active-ist':'');
-  document.getElementById('srcPDT').className='src-btn'+(s==='PDT'?' active-pdt':'');
+  document.getElementById('srcPST').className='src-btn'+(s==='PST'?' active-pst':'');
   const badge=document.getElementById('srcBadge');
   badge.textContent=s+' input';
-  badge.className='src-label-inline '+(s==='IST'?'src-ist-lbl':'src-pdt-lbl');
+  badge.className='src-label-inline '+(s==='IST'?'src-ist-lbl':'src-pst-lbl');
   update();
 }
 
@@ -590,30 +590,30 @@ function buildParts(id, parts, labels, activeIdxs){
 
 function update(){
   const inputMin=getInputMin();
-  const srcOff=source==='IST'?IST_OFF:PDT_OFF;
+  const srcOff=source==='IST'?IST_OFF:PST_OFF;
   const baseDate=getBaseDate();
 
   // Convert input → UTC
   const {min:utcMin, dayOffset:utcOff}=totalMinToUTC(inputMin, srcOff);
 
-  // UTC → IST and PDT
+  // UTC → IST and PST
   const {min:istMin, dayOffset:istFromUtcOff}=utcToTZ(utcMin, IST_OFF);
-  const {min:pdtMin, dayOffset:pdtFromUtcOff}=utcToTZ(utcMin, PDT_OFF);
+  const {min:pdtMin, dayOffset:pdtFromUtcOff}=utcToTZ(utcMin, PST_OFF);
 
   // Compute absolute day offsets relative to input date
   let istDayOff=0, pdtDayOff=0, utcDayOff=utcOff;
   if(source==='IST'){
     istDayOff=0;
     utcDayOff=utcOff;   // UTC relative to IST base
-    // PDT offset from input IST date
-    let rawPDT=inputMin - IST_OFF + PDT_OFF; // IST→UTC→PDT = input - 330 - 420... wait
-    // Actually: PDT = UTC + PDT_OFF = (inputMin - IST_OFF) + PDT_OFF
-    let rawPDTmin=inputMin - IST_OFF + PDT_OFF;
-    if(rawPDTmin<0) pdtDayOff=-1; else if(rawPDTmin>=1440) pdtDayOff=1; else pdtDayOff=0;
+    // PST offset from input IST date
+    let rawPST=inputMin - IST_OFF + PST_OFF; // IST→UTC→PST = input - 330 - 480... wait
+    // Actually: PST = UTC + PST_OFF = (inputMin - IST_OFF) + PST_OFF
+    let rawPSTmin=inputMin - IST_OFF + PST_OFF;
+    if(rawPSTmin<0) pdtDayOff=-1; else if(rawPSTmin>=1440) pdtDayOff=1; else pdtDayOff=0;
   } else {
     pdtDayOff=0;
     utcDayOff=utcOff;
-    let rawIST=inputMin - PDT_OFF + IST_OFF;
+    let rawIST=inputMin - PST_OFF + IST_OFF;
     if(rawIST<0) istDayOff=-1; else if(rawIST>=1440) istDayOff=1; else istDayOff=0;
   }
 
@@ -632,7 +632,7 @@ function update(){
   // Warnings (only for non-source zones relative to source)
   const istWarn=document.getElementById('istWarn');
   const utcWarn=document.getElementById('utcWarn');
-  if(source==='PDT'){
+  if(source==='PST'){
     istWarn.textContent=dayLabel(istDayOff); istWarn.style.display=istDayOff?'inline-block':'none';
   } else { istWarn.style.display='none'; }
   utcWarn.textContent=dayLabel(utcDayOff); utcWarn.style.display=utcDayOff?'inline-block':'none';
@@ -652,7 +652,7 @@ function update(){
   document.getElementById('dateIncLabel').textContent=includeDate?`(${day}/${mo} UTC)`:'(wildcard)';
   buildParts('cronParts', cron.split(' '), ['minute','hour','day','month','weekday'], activeIdxs);
 
-  const pdtStr=`<span class="h-pdt">${fmt12(pdtMin)} PDT (${DAYS[pdtDate.getDay()]})</span>`;
+  const pdtStr=`<span class="h-pdt">${fmt12(pdtMin)} PST (${DAYS[pdtDate.getDay()]})</span>`;
   const istStr=`<span class="h-ist">${fmt12(istMin)} IST (${DAYS[istDate.getDay()]})</span>`;
   const utcStr=`<span class="h-utc">${fmt12(utcMin)} UTC (${DAYS[utcDate.getDay()]})</span>`;
   const cronStr=`<span class="h-cron">${cron}</span>`;
@@ -668,7 +668,7 @@ function updateScheduler(){
   document.getElementById('domWrap').style.display=repeat==='monthly'?'':'none';
 
   const inputMin=getInputMin();
-  const srcOff=source==='IST'?IST_OFF:PDT_OFF;
+  const srcOff=source==='IST'?IST_OFF:PST_OFF;
   const baseDate=getBaseDate();
   const {min:utcMin,dayOffset:utcOff}=totalMinToUTC(inputMin,srcOff);
   const utcDate=offsetDate(baseDate,utcOff);
@@ -716,7 +716,7 @@ function buildRefTable(){
     for(let m=0;m<60;m+=30){
       const ist=h*60+m;
       const {min:utcMin,dayOffset:utcOff}=totalMinToUTC(ist,IST_OFF);
-      const {min:pdtMin,dayOffset:pdtOff}=utcToTZ(utcMin,PDT_OFF);
+      const {min:pdtMin,dayOffset:pdtOff}=utcToTZ(utcMin,PST_OFF);
       const uh=Math.floor(utcMin/60),um=utcMin%60;
       const dLabel=utcOff===0?'Same day':(utcOff<0?'Prev day':'Next day');
       rows+=`<tr>
@@ -732,11 +732,15 @@ function buildRefTable(){
 }
 
 function copyCron(srcId,badgeId){
-  navigator.clipboard.writeText(document.getElementById(srcId).textContent).then(()=>{
-    const el=document.getElementById(badgeId);
-    el.classList.add('show');
-    setTimeout(()=>el.classList.remove('show'),2200);
-  });
+  const text=document.getElementById(srcId).textContent.trim();
+  const ta=document.createElement('textarea');
+  ta.value=text;ta.style.cssText='position:fixed;top:0;left:0;opacity:0;';
+  document.body.appendChild(ta);ta.focus();ta.select();
+  try{ document.execCommand('copy'); }catch(e){}
+  document.body.removeChild(ta);
+  const el=document.getElementById(badgeId);
+  el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),2200);
 }
 
 function switchTab(name,btn){
